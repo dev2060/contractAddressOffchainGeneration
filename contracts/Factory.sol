@@ -6,7 +6,7 @@ contract Factory {
 	address public deployedAddress;
 
 	event DeployedOnChain(address addr, uint256 salt);//contract deployed
-	event GeneratedOffChain(address addr);//contract address generated before deployment on chain
+	
 
 	function deployContract(uint256 salt) public {
 		address contractAddress;
@@ -24,7 +24,5 @@ contract Factory {
 		emit DeployedOnChain(contractAddress, salt);
 	}
 
-	function calculateContractAddress(uint256 salt) public returns (address) {
-		//emit GeneratedOffChain();
-	}
+
 }
