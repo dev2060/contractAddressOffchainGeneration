@@ -36,15 +36,15 @@ async function deployFactoryContract() {
 } 
 
 async function deployChildContractWithFactory(salt, factoryAddress) {
-  const Factory = new web3.eth.Contract(factoryAbi, factoryAddress)
-  const result = await Factory.methods.deployContract(salt).send({
-    from: '0x70edb8c53938b4f3113912b8b42aa83722159922',
-    gas: 4500000,
-    gasPrice: 10000000000
-  })
-  const address = result.events.DeployedOnChain.returnValues.addr.toLowerCase();
-  //console.log(result);
-  return address;
+	const Factory = new web3.eth.Contract(factoryAbi, factoryAddress)
+	const result = await Factory.methods.deployContract(salt)
+	.send({
+		from: '0x70edb8c53938b4f3113912b8b42aa83722159922',
+		gas: 4500000,
+		gasPrice: 10000000000
+	})
+	const address = result.events.DeployedOnChain.returnValues.addr.toLowerCase();
+	return address;
 }
 
 function numToUint256(value) {
