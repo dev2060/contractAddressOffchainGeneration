@@ -1,2 +1,3 @@
 build
 mtruffle-config.js
+test/index.js*
